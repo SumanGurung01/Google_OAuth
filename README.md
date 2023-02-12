@@ -2,7 +2,7 @@
 
 implementing google authentication in web apps using @react-oauth/google
 
-documentation for @react-oauth/google
+documentation of [@react-oauth/google](https://www.npmjs.com/package/@react-oauth/google)
 
 <!-- https://www.npmjs.com/package/@react-oauth/google -->
 
