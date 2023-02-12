@@ -11,5 +11,4 @@ root.render(
   <GoogleOAuthProvider clientId={CLIENT_ID}>
     <App />
   </GoogleOAuthProvider>
-
 );
