@@ -4,11 +4,8 @@ import { googleLogout } from '@react-oauth/google';
 import jwt_decode from "jwt-decode";
 import "./App.css"
 
-
-
 function App() {
-  const CLIENT_ID = "795467005545-rg498iod71rhmht68dmr5s85m1aoad64.apps.googleusercontent.com"
-
+  
   const [isLoggedIn, setIsLoggedIn] = useState(false)
   const [loggedUser, setLoggedUser] = useState(null)
 
@@ -31,7 +28,6 @@ function App() {
     console.log("Logout Success")
     setIsLoggedIn(false)
   }
-
 
   return (
     <div className="login_box">
