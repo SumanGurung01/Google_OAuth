@@ -1,25 +1,54 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from 'react'
+import { GoogleLogin } from '@react-oauth/google';
+import { googleLogout } from '@react-oauth/google';
+import jwt_decode from "jwt-decode";
+import "./App.css"
+
+
 
 function App() {
+  const CLIENT_ID = "795467005545-rg498iod71rhmht68dmr5s85m1aoad64.apps.googleusercontent.com"
+
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [loggedUser, setLoggedUser] = useState(null)
+
+  useEffect(() => {
+    console.log(loggedUser)
+  }, [loggedUser])
+
+  const loginSuccess = (user) => {
+    console.log("Login Success", user)
+    setLoggedUser(jwt_decode(user.credential))
+    setIsLoggedIn(true)
+  }
+
+  const loginFailure = (res) => {
+    console.log("Login Failure", res)
+  }
+
+  const logoutSuccess = () => {
+    googleLogout()
+    console.log("Logout Success")
+    setIsLoggedIn(false)
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="login_box">
+      {isLoggedIn ?
+        <div>
+          <p>Welcome {loggedUser.name}</p>
+          <button type="button" onClick={logoutSuccess}>Log Out</button>
+        </div>
+        :
+        <GoogleLogin
+          onSuccess={loginSuccess}
+          onError={loginFailure}
+          text="signup_with"
+        />
+      }
     </div>
-  );
+  )
 }
 
 export default App;
