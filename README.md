@@ -2,12 +2,13 @@
 
 implementing google authentication in web apps using @react-oauth/google
 
+### @react-oauth/google
 documentation of [@react-oauth/google](https://www.npmjs.com/package/@react-oauth/google)
 
 <!-- https://www.npmjs.com/package/@react-oauth/google -->
 
-you need google developer console
-
+### Google Developer Console
+to use google authentication in your application you need google developer console
 - go to google developer console and create new project
 - click on OAuth consent screen -> external -> create
 - give Appname , User support email and Developer Contact Information
